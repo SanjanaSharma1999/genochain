@@ -1,0 +1,38 @@
+# genochain.yaml
+
+BlockChain:
+  init:
+    genesis_fasta: !arg genesis_fasta
+  methods:
+    create_genesis_block:
+      return: !obj Block
+      args:
+        - 0
+        - !obj time.time
+        - {"id": "Genesis Block", "fasta": !arg genesis_fasta}
+        - "0"
+        - {"version-1": "Initial version"}
+    get_latest_block:
+      return: !obj Block
+    add_block:
+      args:
+        - {"id": !arg id, "fasta": !arg fasta}
+        - {"version_changes": !arg version_changes}
+    check_version:
+      return: str
+      args:
+        - !arg id
+        - !arg fasta
+    get_latest_version:
+      return: str
+      args:
+        - !arg id
+    print_blockchain: null
+
+Block:
+  init:
+    index: !arg index
+    timestamp: !obj time.time
+    data: !arg data
+    previous_hash: !arg previous_hash
+    version_changes: !arg version_changes
