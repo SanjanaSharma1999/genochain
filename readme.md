@@ -1,4 +1,4 @@
-# Genochain Implementation
+# GenoChain Implementation
 
 This is a Python implementation of a simple blockchain. 
 It has the following features:
